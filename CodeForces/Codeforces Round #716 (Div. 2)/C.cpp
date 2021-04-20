@@ -1,64 +1,62 @@
 #include<iostream>
-#include<queue>
+#include<cmath>
+#include<algorithm>
+#include<vector>
 
 using namespace std;
 
-const int N=30;
+typedef long long LL;
 
-int g[N][N];
-
-int dx[]={1,-1,0,0};
-int dy[]={0,0,-1,1};
-
-bool vis[N][N];
-
-bool check(int x,int y)
+int gcd(int a,int b)
 {
-    return true;
+    if(!b) return a;
+    return gcd(b,a%b);
 }
 
-struct Node
+void solve()
 {
-    int x,y;
-    int step;
-};
+    int n;
+    cin>>n;
 
-Node endPos;
-
-int bfs()
-{
-    int res=0;
-    queue<Node> que;
-    
-    Node x{0,0,0};
-    que.push(x);
-
-    while(!que.empty())
+    vector<int> num;
+    LL product=1;
+    for(int i=1;i<n;i++)
     {
-        Node tmp=que.front();
-        que.pop();
-
-        if(tmp.x==endPos.x&&tmp.y==endPos.y)
+        if(gcd(i,n)==1)
         {
-            res=tmp.step;
-            break;
-        }
-        //看四个方向
-        for(int i=0;i<4;i++)
-        {
-            int nx=tmp.x+dx[i],ny=tmp.y+dy[i];
-            if(check())
-                que.push(Node{nx,ny,tmp.step+1});
-            
+            num.push_back(i);
+            product=product*i%n;
         }
     }
 
-    return res;
+
+    if(product!=1)
+    {
+        vector<int> ans;
+        for(int i=0;i<(int)num.size();i++)
+        {
+            if(num[i]==product) continue;
+            ans.push_back(num[i]);
+        }
+        num=ans;
+    }
+    
+
+    cout<<(int)num.size()<<endl;
+    for(auto c:num)
+        cout<<c<<' ';
+
 }
 
 int main()
 {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
+    int t=1;
+    //cin>>t;
+    while(t--)
+        solve();
 
 
     return 0;

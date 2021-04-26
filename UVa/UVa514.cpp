@@ -54,3 +54,48 @@ int main()
     }
     return 0;
 }
+
+//Rujia Liu's version
+//需要对输入输出有修改才可以通过，这里是原始代码
+#include<cstdio>
+#include<stack>
+
+using namespace std;
+const int N=1010;
+
+int n,target[N];
+
+int main()
+{
+    while(scanf("%d",&n)==1)
+    {
+        stack<int> stk;
+        int A=1,B=1;
+        for(int i=1;i<=n;i++)
+            scanf("%d",&target[i]);
+        int ok=1;
+        while(B<=n)
+        {
+            if(A==target[B])
+            {
+                A++,B++;
+            }
+            else if(!stk.empty()&&stk.top()==target[B])
+            {
+                stk.pop();
+                B++;
+            }
+            else if(A<=n)
+            {
+                stk.push(A++);
+            }
+            else
+            {
+                ok=0;
+                break;
+            }
+        }
+        printf("%s\n",ok?"Yes":"No");
+    }
+    return 0;
+}

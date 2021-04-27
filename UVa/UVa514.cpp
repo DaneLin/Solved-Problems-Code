@@ -1,3 +1,5 @@
+//My solution
+/*
 //#define LOCAL
 #include<bits/stdc++.h>
 
@@ -54,9 +56,14 @@ int main()
     }
     return 0;
 }
+<<<<<<< HEAD
 
 //Rujia Liu's version
 //需要对输入输出有修改才可以通过，这里是原始代码
+=======
+*/
+//Rujia Liu's version
+>>>>>>> 264e552 (20210427)
 #include<cstdio>
 #include<stack>
 
@@ -99,3 +106,7 @@ int main()
     }
     return 0;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 264e552 (20210427)

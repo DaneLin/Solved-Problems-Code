@@ -1,4 +1,3 @@
-//#define LOCAL
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -23,20 +22,9 @@ void dfs(int x,int y){
 
 int main()
 {
-    #ifdef LOCAL
-    freopen("a.in", "r", stdin);
-    freopen("a.out", "w", stdout);
-    #endif
-    while(scanf("%d%d",&r,&c))
+    while(scanf("%d%d",&r,&c)==2&&r&&c)
     {
-        getchar();
-        if(!r&&!c) break;
-        for(int i=0;i<r;i++){
-            for(int j=0;j<c;j++){
-                g[i][j]=getchar();
-            }
-            getchar();
-        }
+        for(int i=0;i<r;i++) scanf("%s",g[i]);
         int cnt=0;
         for(int i=0;i<r; i++){
             for(int j= 0; j < c; j++){
@@ -48,7 +36,6 @@ int main()
         }
         cout<<cnt<<endl;
     }
-
 
     return 0;
 }
